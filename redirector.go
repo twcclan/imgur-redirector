@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"html/template"
+	"log"
 	"math/rand"
 	"net/http"
 	"os"
@@ -102,5 +103,5 @@ func main() {
 
 	http.HandleFunc("/preview", handlePreview)
 	http.HandleFunc("/", handle)
-	http.ListenAndServe(host+":"+port, nil)
+	log.Fatal(http.ListenAndServe(host+":"+port, nil))
 }
